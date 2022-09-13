@@ -1,0 +1,43 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  id: ID!
+  email: String!
+}
+
+type Session {
+  user: User!
+  token: String!
+}
+
+type Query {
+  fetchUsers: [User!]!
+  fetchUser(userId: ID!): User!
+  login(loginInput: LoginInput!): Session!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+type Mutation {
+  createUser(userInput: UserInput!): User!
+  updateUser(userInput: UserUpdateInput!, userId: ID!): Boolean!
+  register(registerInput: RegisterInput!): Session!
+}
+
+input UserInput {
+  id: String!
+}
+
+input UserUpdateInput {
+  id: String!
+}
+
+input RegisterInput {
+  email: String!
+  password: String!
+}
